@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useSetRecoilState } from 'recoil';
 
-import {APIS} from "../consts";
+import {APIS} from "../config/consts";
 import { moviesState } from '../store/state';
 
 export function useFetchMovies() {

@@ -1,5 +1,5 @@
 import React from 'react';
-import Movies from "./client/components/movies/movies";
+import Movies from "./client/components/pages/movies/view";
 import {RecoilRoot} from "recoil";
 
 function App() {
