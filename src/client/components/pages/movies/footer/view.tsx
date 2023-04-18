@@ -6,7 +6,7 @@ import { iconsArray } from "./config"
 export const Footer = () => {
   return (
     <Container>
-      <img style={{ height: "40px", width: "40px" }} src={footerLogo} alt="" />
+      <StyledFooterLogo src={footerLogo} alt="" />
       <ContactUsText>Contact Us</ContactUsText>
       <HoursText>support@nextmovies.com</HoursText>
       <HoursText>
@@ -52,4 +52,8 @@ const IconsContainer = styled.div`
 const HoursText = styled.div`
   margin-top: 13px;
   color: #ffffff;
+`
+const StyledFooterLogo = styled.img`
+  height: 40px;
+  width: 40px;
 `

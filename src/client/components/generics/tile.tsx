@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import star from "../../assets/star.png"
-
+import arrowPointRight from "../../assets/arrowPointRight.png"
 import { ratingColors, VerbalRating, NO_RATING_MESSAGE } from "./config"
 
 type Props = {
@@ -26,15 +26,39 @@ export const Tile = ({ image, title, description, rating }: Props) => {
       <MovieTitle>{title}</MovieTitle>
       <MovieDescription dangerouslySetInnerHTML={{ __html: description }} />
       <MovieRating>
-        <img style={{ height: "20px", width: "20px" }} src={star} alt="" />
+        <StyledStar src={star} alt="" />
         <RatingWrapper verbalRating={verbalRating}>
           {rating || NO_RATING_MESSAGE}
         </RatingWrapper>
       </MovieRating>
+      <ReadMoreBtn>
+        Read more <StyledArrow src={arrowPointRight} />
+      </ReadMoreBtn>
     </TileContainer>
   )
 }
+const StyledStar = styled.img`
+  height: 20px;
+  width: 20px;
+`
 
+const StyledArrow = styled.img`
+  text-align: center;
+  cursor: pointer;
+  height: 10px;
+  width: 20px;
+`
+const ReadMoreBtn = styled.button`
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+  padding: 5px 15px;
+  border: 1px solid #000000;
+  background-color: #00d7ff;
+  border-radius: 100px;
+`
 const RatingWrapper = styled.div`
   color: ${({ verbalRating }: { verbalRating: VerbalRating }) =>
     ratingColors[verbalRating]};

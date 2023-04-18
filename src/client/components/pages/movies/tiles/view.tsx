@@ -20,7 +20,6 @@ export const Tiles = ({ movies }: Props) => {
     </Container>
   )
 }
-
 const Container = styled.div`
   display: flex;
   gap: 14px;
