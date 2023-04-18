@@ -36,10 +36,17 @@ const ContactUsText = styled.div`
   font: normal normal normal 33px/37px Georgia;
 `
 const IconsContainer = styled.div`
+  flex-wrap: wrap;
   margin-top: 40px;
   width: 25%;
   display: flex;
   justify-content: space-between;
+  @media screen and (max-width: 1700px) {
+    width: 35%;
+  }
+  @media screen and (max-width: 700px) {
+    width: 80%;
+  }
 `
 
 const HoursText = styled.div`
