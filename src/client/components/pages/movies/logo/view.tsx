@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import logo from "../../../../assets/Logo2.png"
+import logo from "../../../../assets/MoviesLogo.png"
 
 export const Logo = () => {
   return (

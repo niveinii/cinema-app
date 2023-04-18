@@ -8,6 +8,7 @@ import { moviesState } from "../../../store/state"
 import { useFetchMovies } from "../../../hooks/useFetchMovies"
 import { Logo } from "./logo/view"
 import { Tiles } from "./tiles/view"
+import { Footer } from "./footer/view"
 
 export const Movies = () => {
   const movies = useRecoilValue<Movie[]>(moviesState)
@@ -21,6 +22,7 @@ export const Movies = () => {
           <Tiles movies={movies} />
         </TilesSection>
       </Container>
+      <Footer />
     </>
   )
 }
