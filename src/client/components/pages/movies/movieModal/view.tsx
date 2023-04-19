@@ -5,15 +5,15 @@ import {
   adaptRankingString,
   separateHoursAndMinutes,
 } from "../../../../utils/utils"
-import GenericModal from "../../../designSystem/modal"
 import StarLogo from "../../../../assets/star.png"
+import GenericModal from "../../../designSystem/modal"
 import { Movie, MovieKeys } from "../../../../types/movies"
 import { NO_RATING_MESSAGE } from "../../../designSystem/config"
 
 type Props = {
   isModalOpen: boolean
-  selectedMoviesState: Movie
   closeCb: () => void
+  selectedMoviesState: Movie
 }
 
 export const Rating = ({ rating }: { rating: number }) =>
@@ -69,27 +69,27 @@ const StarWrapper = styled.img`
   height: 30px;
 `
 const RankContainer = styled.div`
+  gap: 10px;
   display: flex;
   align-items: center;
-  gap: 10px;
 `
 const ModalBodyContainer = styled.div`
+  gap: 4%;
   width: 80%;
   display: flex;
-  gap: 4%;
-  justify-content: space-between;
   padding: 4% 4%;
+  justify-content: space-between;
   @media screen and (max-width: 400px) {
     flex-direction: column;
     gap: 20px;
   }
 `
 const TextContainer = styled.div`
+  gap: 5%;
+  flex: 50%;
   display: flex;
   line-height: 1.5;
   flex-direction: column;
-  gap: 5%;
-  flex: 50%;
   @media screen and (max-width: 400px) {
     gap: 15px;
   }

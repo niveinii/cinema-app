@@ -4,26 +4,26 @@ import styled from "styled-components"
 type Props = {
   text: string
   icon: string
-  backgroundColor?: string
+  width?: string
   flexDirection?: string
   cb: (args: any) => void
-  width?: string
+  backgroundColor?: string
 }
 
 export const RoundedButton = ({
-  flexDirection,
-  backgroundColor,
+  cb,
   text,
   icon,
-  cb,
   width,
+  flexDirection,
+  backgroundColor,
 }: Props) => {
   return (
     <StyledRoundedButton
+      onClick={cb}
+      width={width}
       flexDirection={flexDirection}
       backgroundColor={backgroundColor}
-      width={width}
-      onClick={cb}
     >
       {text} <StyledIcon src={icon} />
     </StyledRoundedButton>
@@ -35,9 +35,9 @@ const StyledIcon = styled.img`
   width: 20px;
 `
 const StyledRoundedButton = styled.button<{
+  width?: string
   flexDirection?: string
   backgroundColor?: string
-  width?: string
 }>`
   cursor: pointer;
   display: flex;

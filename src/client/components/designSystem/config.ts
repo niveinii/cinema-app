@@ -1,5 +1,6 @@
 export const NO_RATING_MESSAGE = "No Rating"
 export const READ_MORE_MESSAGE = "Read more"
+
 export enum VerbalRating {
   Default = "",
   Bad = "Bad",

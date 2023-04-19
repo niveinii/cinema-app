@@ -14,8 +14,8 @@ export const Filters = ({ movies, filterCb }: Props) => {
     <Container>
       <Autocomplete
         options={movies}
-        getOptionLabel={(option: Movie) => option[MovieKeys.Title]}
         onInputChange={filterCb}
+        getOptionLabel={(option: Movie) => option[MovieKeys.Title]}
         renderInput={(params: any) => (
           <TextField {...params} label="Search" variant="outlined" />
         )}
@@ -25,13 +25,13 @@ export const Filters = ({ movies, filterCb }: Props) => {
 }
 
 const Container = styled.div`
-  width: 30%;
-  display: flex;
-  flex-direction: column;
   gap: 10px;
-  margin-bottom: 5%;
   height: 0;
+  width: 30%;
   padding: 2%;
+  display: flex;
+  margin-bottom: 5%;
+  flex-direction: column;
   @media screen and (max-width: 900px) {
     margin-bottom: 10%;
     width: 90%;

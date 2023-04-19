@@ -8,9 +8,9 @@ import { filteredMoviesState, moviesState } from "../../../store/state"
 
 import { Logo } from "./logo/view"
 import { Tiles } from "./tiles/view"
-import { Footer } from "./footer/view"
-import { Header } from "./header/view"
 import Filters from "./filters/view"
+import { Header } from "./header/view"
+import { Footer } from "./footer/view"
 
 export const Movies = () => {
   useFetchMovies()
@@ -46,7 +46,6 @@ const Container = styled.div`
     padding: 0 0 5% 0;
   }
 `
-
 const TilesSection = styled.div`
   margin-top: 5%;
 `

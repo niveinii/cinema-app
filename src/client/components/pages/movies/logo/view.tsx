@@ -13,6 +13,6 @@ export const Logo = () => {
 
 const Container = styled.div`
   padding: 0 5%;
-  background-color: white;
   align-items: center;
+  background-color: white;
 `

@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+
 import footerLogo from "../../../../assets/FooterLogo.png"
 import { DISPLAY_DESCRIPTION, iconsArray } from "./config"
 

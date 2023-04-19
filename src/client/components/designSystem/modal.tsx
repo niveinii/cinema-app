@@ -1,16 +1,17 @@
 import React from "react"
-import { makeStyles } from "@material-ui/core/styles"
+import Fade from "@material-ui/core/Fade"
 import Modal from "@material-ui/core/Modal"
 import Backdrop from "@material-ui/core/Backdrop"
-import Fade from "@material-ui/core/Fade"
+import { makeStyles } from "@material-ui/core/styles"
+
+import styled from "styled-components"
 import { RoundedButton } from "./roundedButton"
 import arrowPointLeft from "../../assets/arrowPointLeft.png"
-import styled from "styled-components"
 
 type Props = {
   isOpen: boolean
-  handleClose: () => void
   children: any
+  handleClose: () => void
 }
 
 function GenericModal({ isOpen, children, handleClose }: Props) {

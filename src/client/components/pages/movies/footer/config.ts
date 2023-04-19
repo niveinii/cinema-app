@@ -10,6 +10,7 @@ export const DISPLAY_DESCRIPTION = {
   WORKING_HOURS:
     "Mon – Fri | 6:00am – 5:00 pm PT Mon – Fri | 6:00am – 5:00 pm PT",
 }
+
 export const iconsArray = [
   {
     icon: facebook,

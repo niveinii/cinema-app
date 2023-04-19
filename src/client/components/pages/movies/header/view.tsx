@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+
 import { MAIN_PAGE_TITLE } from "./config"
 
 export const Header = () => {
@@ -15,10 +16,10 @@ const Container = styled.div`
   justify-content: center;
 `
 const HeaderText = styled.div`
-  text-align: center;
-  text-transform: uppercase;
   width: 60%;
   color: black;
+  text-align: center;
+  text-transform: uppercase;
   font: normal normal bold 80px/66px Arial;
   @media screen and (max-width: 1000px) {
     font: normal normal bold 60px/66px Arial;
