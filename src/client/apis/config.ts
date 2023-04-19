@@ -1,6 +1,6 @@
-const BASE_API = process.env.URL || "http://localhost:5000"
+const BASE_URL = process.env.URL || "http://localhost:5000"
 
-export const APIS = {
-  ALL_MOVIES: `${BASE_API}/movies`,
-  SINGLE_MOVIE: (movieId: string) => `${BASE_API}/movies/${movieId}`,
+export const MOVIES_API = {
+  ALL_MOVIES: `${BASE_URL}/movies`,
+  SINGLE_MOVIE: (movieId: string) => `${BASE_URL}/movies/${movieId}`,
 }

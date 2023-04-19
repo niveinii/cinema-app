@@ -1,9 +1,9 @@
-import { APIS } from "./config"
+import { MOVIES_API } from "./config"
 import { Movie } from "../types/movies"
 
 export async function getAllMovies(): Promise<Movie[]> {
   try {
-    const response = await fetch(APIS.ALL_MOVIES)
+    const response = await fetch(MOVIES_API.ALL_MOVIES)
     return await response.json()
   } catch (error) {
     console.error(error)
@@ -13,7 +13,7 @@ export async function getAllMovies(): Promise<Movie[]> {
 
 export async function getSingleMovie(id: string): Promise<Movie[]> {
   try {
-    const response = await fetch(APIS.SINGLE_MOVIE(id))
+    const response = await fetch(MOVIES_API.SINGLE_MOVIE(id))
     return response.json()
   } catch (error) {
     console.error(error)
