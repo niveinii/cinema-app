@@ -35,14 +35,17 @@ export const Tile = ({
   id,
 }: Props) => {
   const verbalRating = getVerbalRating(rating)
+  const displayTitle = `${title} (${released})`
   return (
     <TileContainer>
       <ImageContainer>
         <Image src={image} alt="Movie Title" />
       </ImageContainer>
-      <Title>
-        {title} ({released})
-      </Title>
+      <Title
+        dangerouslySetInnerHTML={{
+          __html: displayTitle,
+        }}
+      ></Title>
       <Rating>
         <StyledStar src={star} alt="Star Tile" />
         <RatingWrapper verbalRating={verbalRating}>
