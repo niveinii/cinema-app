@@ -1,11 +1,31 @@
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 import { Tile } from "../../../generics/tile"
 import { Movie, MovieKeys } from "../../../../types/movies"
+import { MovieModal } from "../movieModal/view"
+import { useRecoilState } from "recoil"
+import { selectedMovie } from "../../../../store/state"
+import { APIS } from "../../../../config/consts"
 type Props = {
   movies: Movie[]
 }
 export const Tiles = ({ movies }: Props) => {
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
+  const openModal = (): void => setIsModalOpen(true)
+  const closeModal = (): void => setIsModalOpen(false)
+  const [selectedMoviesState, setSelectedMovie] = useRecoilState(selectedMovie)
+
+  const getSelectedMovie = () => {
+    return fetch(APIS.SINGLE_MOVIE("207856"))
+      .then((res) => res.json())
+      .then((res) => setSelectedMovie(res[0]))
+  }
+
+  const buttonClickCallback = async () => {
+    openModal()
+    await getSelectedMovie()
+  }
+
   return (
     <Container>
       {movies.map((movie: Movie) => (
@@ -13,10 +33,16 @@ export const Tiles = ({ movies }: Props) => {
           key={movie[MovieKeys.Id]}
           title={movie[MovieKeys.Title]}
           image={movie[MovieKeys.Image]}
-          rating={parseInt(movie[MovieKeys.Rating])}
-          description={movie[MovieKeys.Synopsis]}
+          rating={parseFloat(movie[MovieKeys.Rating])}
+          released={movie[MovieKeys.Released]}
+          buttonCb={buttonClickCallback}
         />
       ))}
+      <MovieModal
+        selectedMoviesState={selectedMoviesState}
+        isModalOpen={isModalOpen}
+        closeCb={closeModal}
+      />
     </Container>
   )
 }
