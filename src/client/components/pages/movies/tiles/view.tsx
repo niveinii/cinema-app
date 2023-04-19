@@ -1,16 +1,20 @@
 import React, { useState } from "react"
 import styled from "styled-components"
-import { Tile } from "../../../generics/tile"
-import { Movie, MovieKeys } from "../../../../types/movies"
-import { MovieModal } from "../movieModal/view"
+
 import { useRecoilState } from "recoil"
-import { selectedMovieState } from "../../../../store/state"
+import { Tile } from "../../../generics/tile"
+import { MovieModal } from "../movieModal/view"
 import { getSingleMovie } from "../../../../apis/movies"
+import { Movie, MovieKeys } from "../../../../types/movies"
+import { selectedMovieState } from "../../../../store/state"
+
 type Props = {
   movies: Movie[]
 }
+
 export const Tiles = ({ movies }: Props) => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
+
   const openModal = (): void => setIsModalOpen(true)
   const closeModal = (): void => setIsModalOpen(false)
   const [selectedMoviesState, setSelectedMovie] =

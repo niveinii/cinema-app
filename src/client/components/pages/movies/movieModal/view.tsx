@@ -1,12 +1,13 @@
 import React from "react"
-import GenericModal from "../../../generics/modal"
-import { Movie, MovieKeys } from "../../../../types/movies"
 import styled from "styled-components"
+
 import {
   adaptRankingString,
   separateHoursAndMinutes,
 } from "../../../../utils/utils"
+import GenericModal from "../../../generics/modal"
 import StarLogo from "../../../../assets/star.png"
+import { Movie, MovieKeys } from "../../../../types/movies"
 import { NO_RATING_MESSAGE } from "../../../generics/config"
 
 type Props = {

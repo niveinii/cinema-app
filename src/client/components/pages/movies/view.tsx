@@ -2,14 +2,15 @@ import React from "react"
 import styled from "styled-components"
 import { useRecoilState, useRecoilValue } from "recoil"
 
+import { Movie, MovieKeys } from "../../../types/movies"
+import { useFetchMovies } from "../../../hooks/useFetchMovies"
+import { filteredMoviesState, moviesState } from "../../../store/state"
+
 import { Logo } from "./logo/view"
 import { Tiles } from "./tiles/view"
 import { Footer } from "./footer/view"
 import { Header } from "./header/view"
 import Filters from "./filters/view"
-import { Movie, MovieKeys } from "../../../types/movies"
-import { filteredMoviesState, moviesState } from "../../../store/state"
-import { useFetchMovies } from "../../../hooks/useFetchMovies"
 
 export const Movies = () => {
   useFetchMovies()

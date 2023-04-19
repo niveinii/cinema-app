@@ -17,12 +17,12 @@ export type Movie = {
   [MovieKeys.Title]: string
   [MovieKeys.Image]: string
   [MovieKeys.Synopsis]: string
-  [MovieKeys.Rating]?: string
-  [MovieKeys.Type]?: string
-  [MovieKeys.Released]?: string
-  [MovieKeys.Runtime]?: string
-  [MovieKeys.LargeImage]?: string
-  [MovieKeys.UnogsDate]?: string
-  [MovieKeys.ImdbId]?: string
-  [MovieKeys.Download]?: "0" | "1"
+  [MovieKeys.Rating]: string
+  [MovieKeys.Type]: string
+  [MovieKeys.Released]: string
+  [MovieKeys.Runtime]: string
+  [MovieKeys.LargeImage]: string
+  [MovieKeys.UnogsDate]: string
+  [MovieKeys.ImdbId]: string
+  [MovieKeys.Download]: "0" | "1"
 }
