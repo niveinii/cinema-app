@@ -1,22 +1,23 @@
 import React from "react"
 import styled from "styled-components"
-import star from "../../assets/star.png"
-import arrowPointRight from "../../assets/arrowPointRight.png"
+
 import {
   ratingColors,
   VerbalRating,
   NO_RATING_MESSAGE,
   READ_MORE_MESSAGE,
 } from "./config"
+import star from "../../assets/star.png"
 import { RoundedButton } from "./roundedButton"
+import arrowPointRight from "../../assets/arrowPointRight.png"
 
 type Props = {
   image: string
   title: string
   rating: number
   released: string
-  buttonCb: (id: string) => Promise<void>
   id: string
+  buttonCb: (id: string) => Promise<void>
 }
 const getVerbalRating = (rating: number | typeof NaN): VerbalRating => {
   if (isNaN(rating)) return VerbalRating.Default
@@ -36,19 +37,19 @@ export const Tile = ({
   const verbalRating = getVerbalRating(rating)
   return (
     <TileContainer>
-      <MovieImageContainer>
-        <MovieImage src={image} alt="" />
-      </MovieImageContainer>
-      <MovieTitle>
+      <ImageContainer>
+        <Image src={image} alt="Movie Title" />
+      </ImageContainer>
+      <Title>
         {title} ({released})
-      </MovieTitle>
-      <MovieRating>
-        <StyledStar src={star} alt="" />
+      </Title>
+      <Rating>
+        <StyledStar src={star} alt="Star Tile" />
         <RatingWrapper verbalRating={verbalRating}>
           {rating || NO_RATING_MESSAGE}
           <StyledVerbalRating>{verbalRating}</StyledVerbalRating>
         </RatingWrapper>
-      </MovieRating>
+      </Rating>
       <RoundedButton
         text={READ_MORE_MESSAGE}
         icon={arrowPointRight}
@@ -67,19 +68,19 @@ const StyledVerbalRating = styled.span`
 const RatingWrapper = styled.div<{ verbalRating: VerbalRating }>`
   ${({ verbalRating }) => `color: ${ratingColors[verbalRating]}`}
 `
-const MovieImageContainer = styled.div`
+const ImageContainer = styled.div`
   flex: 15;
 `
-const MovieImage = styled.img`
+const Image = styled.img`
   border-radius: 5%;
 `
-const MovieRating = styled.div`
+const Rating = styled.div`
   display: flex;
   gap: 5%;
   align-items: end;
 `
 
-const MovieTitle = styled.div`
+const Title = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;

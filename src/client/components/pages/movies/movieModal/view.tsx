@@ -5,16 +5,26 @@ import {
   adaptRankingString,
   separateHoursAndMinutes,
 } from "../../../../utils/utils"
-import GenericModal from "../../../generics/modal"
+import GenericModal from "../../../designSystem/modal"
 import StarLogo from "../../../../assets/star.png"
 import { Movie, MovieKeys } from "../../../../types/movies"
-import { NO_RATING_MESSAGE } from "../../../generics/config"
+import { NO_RATING_MESSAGE } from "../../../designSystem/config"
 
 type Props = {
   isModalOpen: boolean
   selectedMoviesState: Movie
   closeCb: () => void
 }
+
+export const Rating = ({ rating }: { rating: number }) =>
+  rating ? (
+    <RankContainer>
+      <StarWrapper src={StarLogo} alt="Star Logo" />
+      <div>{adaptRankingString(rating)}</div>
+    </RankContainer>
+  ) : (
+    <div>{NO_RATING_MESSAGE}</div>
+  )
 
 export const MovieModal = ({
   selectedMoviesState,
@@ -35,14 +45,7 @@ export const MovieModal = ({
           <div>
             {separateHoursAndMinutes(selectedMoviesState?.[MovieKeys.Runtime])}
           </div>
-          {rating ? (
-            <RankContainer>
-              <StarWrapper src={StarLogo} alt="" />
-              <div>{adaptRankingString(rating)}</div>
-            </RankContainer>
-          ) : (
-            <div>{NO_RATING_MESSAGE}</div>
-          )}
+          <Rating rating={rating}></Rating>
           <div
             dangerouslySetInnerHTML={{
               __html: selectedMoviesState?.[MovieKeys.Synopsis],

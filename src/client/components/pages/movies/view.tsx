@@ -29,8 +29,8 @@ export const Movies = () => {
       <Logo />
       <Container>
         <Header />
+        <Filters movies={filteredMoviesList} filterCb={filteredMoviesCb} />
         <TilesSection>
-          <Filters movies={filteredMoviesList} filterCb={filteredMoviesCb} />
           <Tiles movies={filteredMoviesList} />
         </TilesSection>
       </Container>

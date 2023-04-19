@@ -6,7 +6,7 @@ import logo from "../../../../assets/MoviesLogo.png"
 export const Logo = () => {
   return (
     <Container>
-      <img src={logo} alt="" />
+      <img src={logo} alt="Logo" />
     </Container>
   )
 }

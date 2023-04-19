@@ -1,20 +1,18 @@
 import React from "react"
 import styled from "styled-components"
 import footerLogo from "../../../../assets/FooterLogo.png"
-import { iconsArray } from "./config"
+import { DISPLAY_DESCRIPTION, iconsArray } from "./config"
 
 export const Footer = () => {
   return (
     <Container>
-      <StyledFooterLogo src={footerLogo} alt="" />
-      <ContactUsText>Contact Us</ContactUsText>
-      <HoursText>support@nextmovies.com</HoursText>
-      <HoursText>
-        Mon – Fri | 6:00am – 5:00 pm PT Mon – Fri | 6:00am – 5:00 pm PT
-      </HoursText>
+      <StyledFooterLogo src={footerLogo} alt="Next Insurance Logo" />
+      <ContactUsText>{DISPLAY_DESCRIPTION.CONTACT_US}</ContactUsText>
+      <HoursText>{DISPLAY_DESCRIPTION.EMAIL}</HoursText>
+      <HoursText>{DISPLAY_DESCRIPTION.WORKING_HOURS}</HoursText>
       <IconsContainer>
         {iconsArray.map((icon) => (
-          <img key={icon.key} src={icon.icon} alt="" />
+          <img key={icon.key} src={icon.icon} alt={`${icon.key} Icon`} />
         ))}
       </IconsContainer>
     </Container>

@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import styled from "styled-components"
 
 import { useRecoilState } from "recoil"
-import { Tile } from "../../../generics/tile"
+import { Tile } from "../../../designSystem/tile"
 import { MovieModal } from "../movieModal/view"
 import { getSingleMovie } from "../../../../apis/movies"
 import { Movie, MovieKeys } from "../../../../types/movies"

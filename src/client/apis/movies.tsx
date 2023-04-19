@@ -1,4 +1,4 @@
-import { APIS } from "../config/consts"
+import { APIS } from "./config"
 import { Movie } from "../types/movies"
 
 export async function getAllMovies(): Promise<Movie[]> {

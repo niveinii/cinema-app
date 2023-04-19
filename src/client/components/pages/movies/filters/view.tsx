@@ -25,6 +25,7 @@ export const Filters = ({ movies, filterCb }: Props) => {
 }
 
 const Container = styled.div`
+  width: 30%;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -33,9 +34,11 @@ const Container = styled.div`
   padding: 2%;
   @media screen and (max-width: 900px) {
     margin-bottom: 10%;
+    width: 90%;
   }
   @media screen and (max-width: 500px) {
     margin-bottom: 20%;
+    width: 90%;
   }
 `
 export default Filters

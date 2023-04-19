@@ -1,4 +1,4 @@
-import { MAX_MOVIE_SCORE } from "../config/consts"
+export const MAX_MOVIE_SCORE = 10
 
 export const separateHoursAndMinutes = (timeString: string) => {
   if (!timeString) return

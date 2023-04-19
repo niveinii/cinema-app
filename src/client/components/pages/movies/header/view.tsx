@@ -1,10 +1,11 @@
 import React from "react"
 import styled from "styled-components"
+import { MAIN_PAGE_TITLE } from "./config"
 
 export const Header = () => {
   return (
     <Container>
-      <HeaderText>Explore your next movies and tv shows</HeaderText>
+      <HeaderText>{MAIN_PAGE_TITLE}</HeaderText>
     </Container>
   )
 }
