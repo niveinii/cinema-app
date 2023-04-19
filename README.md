@@ -9,8 +9,9 @@ To start the application, please follow these steps:
 1. Clone the repository to your local machine
 2. Navigate to the root directory
 3. Run `npm install`
-4. Run `npm run start-be` to start the backend server
-5. Run `npm run start-fe` to start the frontend server
+4. Run `npm run start-be` to start the backend server. Runs on port 5000
+5. Run `npm run start-fe` to start the frontend server. Runs on port 3000
+6. Run `npm run storybook` to start the storybook view. Runs on port 6006
 
 ## Features
 
@@ -27,6 +28,7 @@ Next Cinema offers the following features:
 - Styled Components
 - Recoil
 - Material UI
+- Storybook
 - Node.js
 - Express
 
