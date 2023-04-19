@@ -50,6 +50,7 @@ const IconsContainer = styled.div`
 `
 
 const HoursText = styled.div`
+  text-align: center;
   margin-top: 13px;
   color: #ffffff;
 `

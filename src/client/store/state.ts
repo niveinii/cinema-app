@@ -6,7 +6,12 @@ export const moviesState = atom<Movie[]>({
   default: [],
 })
 
-export const selectedMovie = atom<Movie>({
-  key: "selectedMovie",
+export const filteredMoviesState = atom<Movie[]>({
+  key: "filteredMoviesState",
+  default: [],
+})
+
+export const selectedMovieState = atom<Movie>({
+  key: "selectedMovieState",
   default: undefined,
 })

@@ -4,7 +4,7 @@ import { Tile } from "../../../generics/tile"
 import { Movie, MovieKeys } from "../../../../types/movies"
 import { MovieModal } from "../movieModal/view"
 import { useRecoilState } from "recoil"
-import { selectedMovie } from "../../../../store/state"
+import { selectedMovieState } from "../../../../store/state"
 import { getSingleMovie } from "../../../../apis/movies"
 type Props = {
   movies: Movie[]
@@ -13,13 +13,13 @@ export const Tiles = ({ movies }: Props) => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
   const openModal = (): void => setIsModalOpen(true)
   const closeModal = (): void => setIsModalOpen(false)
-  const [selectedMoviesState, setSelectedMovie] = useRecoilState(selectedMovie)
+  const [selectedMoviesState, setSelectedMovie] =
+    useRecoilState(selectedMovieState)
 
   const buttonClickCallback = async (id: string) => {
     openModal()
     const selectedMovie = await getSingleMovie(id)
     setSelectedMovie(selectedMovie[0])
-    console.log(selectedMoviesState)
   }
 
   return (

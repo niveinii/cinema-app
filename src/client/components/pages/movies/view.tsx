@@ -1,27 +1,36 @@
 import React from "react"
 import styled from "styled-components"
-import { useRecoilValue } from "recoil"
+import { useRecoilState, useRecoilValue } from "recoil"
 
 import { Logo } from "./logo/view"
 import { Tiles } from "./tiles/view"
 import { Footer } from "./footer/view"
 import { Header } from "./header/view"
 import Filters from "./filters/view"
-import { Movie } from "../../../types/movies"
-import { moviesState } from "../../../store/state"
+import { Movie, MovieKeys } from "../../../types/movies"
+import { filteredMoviesState, moviesState } from "../../../store/state"
 import { useFetchMovies } from "../../../hooks/useFetchMovies"
 
 export const Movies = () => {
-  const movies = useRecoilValue<Movie[]>(moviesState)
   useFetchMovies()
+  const movies = useRecoilValue<Movie[]>(moviesState)
+  const [filteredMoviesList, setFilteredMovies] =
+    useRecoilState<Movie[]>(filteredMoviesState)
+
+  const filteredMoviesCb = (e: any, value: string) => {
+    const filteredMovies = movies.filter((movie: Movie) =>
+      movie[MovieKeys.Title].includes(value)
+    )
+    setFilteredMovies(filteredMovies)
+  }
   return (
     <>
       <Logo />
       <Container>
         <Header />
         <TilesSection>
-          <Filters />
-          <Tiles movies={movies} />
+          <Filters movies={filteredMoviesList} filterCb={filteredMoviesCb} />
+          <Tiles movies={filteredMoviesList} />
         </TilesSection>
       </Container>
       <Footer />

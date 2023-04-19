@@ -36,9 +36,9 @@ export const Tile = ({
   const verbalRating = getVerbalRating(rating)
   return (
     <TileContainer>
-      <MovieImage>
-        <img src={image} alt="" />
-      </MovieImage>
+      <MovieImageContainer>
+        <MovieImage src={image} alt="" />
+      </MovieImageContainer>
       <MovieTitle>
         {title} ({released})
       </MovieTitle>
@@ -67,8 +67,11 @@ const StyledVerbalRating = styled.span`
 const RatingWrapper = styled.div<{ verbalRating: VerbalRating }>`
   ${({ verbalRating }) => `color: ${ratingColors[verbalRating]}`}
 `
-const MovieImage = styled.div`
+const MovieImageContainer = styled.div`
   flex: 15;
+`
+const MovieImage = styled.img`
+  border-radius: 5%;
 `
 const MovieRating = styled.div`
   display: flex;
