@@ -5,6 +5,7 @@ import Backdrop from "@material-ui/core/Backdrop"
 import Fade from "@material-ui/core/Fade"
 import { RoundedButton } from "./roundedButton"
 import arrowPointLeft from "../../assets/arrowPointLeft.png"
+import styled from "styled-components"
 
 type Props = {
   isOpen: boolean
@@ -27,32 +28,40 @@ function GenericModal({ isOpen, children, handleClose }: Props) {
       }}
     >
       <Fade in={isOpen}>
-        <div className={classes.paper}>
+        <Body>
           {children}
-          <RoundedButton
-            flexDirection="row-reverse"
-            text="Back to list"
-            cb={handleClose}
-            icon={arrowPointLeft}
-          />
-        </div>
+          <ButtonContainer>
+            <RoundedButton
+              width="20%"
+              flexDirection="row-reverse"
+              text="Back to list"
+              cb={handleClose}
+              icon={arrowPointLeft}
+            />
+          </ButtonContainer>
+        </Body>
       </Fade>
     </Modal>
   )
 }
-const useStyles = makeStyles((theme) => ({
+
+const Body = styled.div`
+  width: 80%;
+  background-color: white;
+  border: 2px solid #000;
+  padding-bottom: 3%;
+  @media screen and (max-width: 400px) {
+  }
+`
+const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: center;
+`
+const useStyles = makeStyles(() => ({
   modal: {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-  },
-  paper: {
-    width: "90%",
-    height: "80%",
-    backgroundColor: theme.palette.background.paper,
-    border: "2px solid #000",
-    boxShadow: theme.shadows[5],
-    padding: theme.spacing(2, 4, 3),
   },
 }))
 export default GenericModal

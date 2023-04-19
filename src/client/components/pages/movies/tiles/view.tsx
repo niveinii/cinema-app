@@ -5,7 +5,7 @@ import { Movie, MovieKeys } from "../../../../types/movies"
 import { MovieModal } from "../movieModal/view"
 import { useRecoilState } from "recoil"
 import { selectedMovie } from "../../../../store/state"
-import { APIS } from "../../../../config/consts"
+import { getSingleMovie } from "../../../../apis/movies"
 type Props = {
   movies: Movie[]
 }
@@ -15,15 +15,11 @@ export const Tiles = ({ movies }: Props) => {
   const closeModal = (): void => setIsModalOpen(false)
   const [selectedMoviesState, setSelectedMovie] = useRecoilState(selectedMovie)
 
-  const getSelectedMovie = () => {
-    return fetch(APIS.SINGLE_MOVIE("207856"))
-      .then((res) => res.json())
-      .then((res) => setSelectedMovie(res[0]))
-  }
-
-  const buttonClickCallback = async () => {
+  const buttonClickCallback = async (id: string) => {
     openModal()
-    await getSelectedMovie()
+    const selectedMovie = await getSingleMovie(id)
+    setSelectedMovie(selectedMovie[0])
+    console.log(selectedMoviesState)
   }
 
   return (
@@ -31,6 +27,7 @@ export const Tiles = ({ movies }: Props) => {
       {movies.map((movie: Movie) => (
         <Tile
           key={movie[MovieKeys.Id]}
+          id={movie[MovieKeys.Id]}
           title={movie[MovieKeys.Title]}
           image={movie[MovieKeys.Image]}
           rating={parseFloat(movie[MovieKeys.Rating])}

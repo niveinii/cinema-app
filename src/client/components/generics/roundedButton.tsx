@@ -6,7 +6,8 @@ type Props = {
   icon: string
   backgroundColor?: string
   flexDirection?: string
-  cb: () => void
+  cb: (args: any) => void
+  width?: string
 }
 
 export const RoundedButton = ({
@@ -15,11 +16,13 @@ export const RoundedButton = ({
   text,
   icon,
   cb,
+  width,
 }: Props) => {
   return (
     <StyledRoundedButton
       flexDirection={flexDirection}
       backgroundColor={backgroundColor}
+      width={width}
       onClick={cb}
     >
       {text} <StyledIcon src={icon} />
@@ -34,6 +37,7 @@ const StyledIcon = styled.img`
 const StyledRoundedButton = styled.button<{
   flexDirection?: string
   backgroundColor?: string
+  width?: string
 }>`
   cursor: pointer;
   display: flex;
@@ -43,7 +47,11 @@ const StyledRoundedButton = styled.button<{
   padding: 5px 15px;
   border: 1px solid #000000;
   ${({ flexDirection }) => flexDirection && `flex-direction: ${flexDirection};`}
+  ${({ width }) => width && `width: ${width};`}
   ${({ backgroundColor }) =>
     `background-color: ${backgroundColor ? backgroundColor : "transparent"};`}
   border-radius: 100px;
+  @media screen and (max-width: 400px) {
+    ${({ width }) => width && `width: 50%;`}
+  }
 `

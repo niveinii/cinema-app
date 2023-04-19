@@ -15,7 +15,8 @@ type Props = {
   title: string
   rating: number
   released: string
-  buttonCb: () => void
+  buttonCb: (id: string) => Promise<void>
+  id: string
 }
 const getVerbalRating = (rating: number | typeof NaN): VerbalRating => {
   if (isNaN(rating)) return VerbalRating.Default
@@ -24,7 +25,14 @@ const getVerbalRating = (rating: number | typeof NaN): VerbalRating => {
   return VerbalRating.Great
 }
 
-export const Tile = ({ image, title, released, rating, buttonCb }: Props) => {
+export const Tile = ({
+  image,
+  title,
+  released,
+  rating,
+  buttonCb,
+  id,
+}: Props) => {
   const verbalRating = getVerbalRating(rating)
   return (
     <TileContainer>
@@ -44,7 +52,7 @@ export const Tile = ({ image, title, released, rating, buttonCb }: Props) => {
       <RoundedButton
         text={READ_MORE_MESSAGE}
         icon={arrowPointRight}
-        cb={buttonCb}
+        cb={() => buttonCb(id)}
       />
     </TileContainer>
   )
