@@ -17,8 +17,8 @@ To start the application, please follow these steps:
 Next Cinema offers the following features:
 
 - **Autocomplete search bar**: Find your favorite movies quickly and easily with our search bar that offers autocomplete suggestions.
-- **Modal for every movie**: Learn more about each movie with our detailed modal that displays key information about the movie.
-- **Movie score**: Identify the best movies with ease thanks to our color-coded score system that highlights the top-rated movies.
+- **Modal for every movie**: Learn more about each movie with a single press.
+- **Movie score**: Identify the best movies with color-coded score system that indicates good movies.
 
 ## Technologies Used
 
@@ -36,6 +36,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Contact
 
-If you have any questions or concerns, please don't hesitate to reach out to us at nextcinema@example.com.
+If you have any questions or concerns, please don't hesitate to reach out to us at niveinii@gmail.com.
 
 Enjoy the movies!
